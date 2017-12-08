@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* fix for invicible modals */
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal-backdrop .fade .in {
+  opacity: 0.5 !important;
+}
+
+.fade.show {
+  opacity: 1 !important;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.5 !important;
+}
+
+/* .modal-dialog {
+  display: flex;
+  width: 100% !important;
+  height: 100%;
+} */
+
+.modal-content {
+  margin-top: 300px;
+  /* width: 50%;
+  margin: auto; */
+} 

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <form #usersForm="ngForm" (ngSubmit)="getRepos(usersQuery)" novalidate>
+    <div class="input-group col-md-4">
+      <input type="text" 
+             class="form-control col-md-4"
+             placeholder="enter users login"
+             required
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="usersQuery"
+             (ngModelChange)="logChanges(usersQuery, usersForm)">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">get repos</button>
+      </span>
+    </div>  
+  </form>
+  <div *ngIf="users.length > 0" class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th>ava</th>
+        <th>login</th>
+        <th>id</th>
+      </tr>
+      <tr *ngFor="let user of users" (click)="showUserDetails(user)">
+        <td><img [src]="user.avatar_url" class="user-ava"></td>
+        <td>{{user.login}}</td>
+        <td>{{user.id}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

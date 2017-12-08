@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div>
+    <button class="btn btn-default" (click)="editUser()">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <span>
+        <strong>Add</strong>
+      </span>
+    </button>
+  </div>
+  <div>
+    <!-- TODO: replace with datatable -->
+    <div *ngIf="users.length > 0" class="table-responsive">
+      <table class="table table-hover table-bordered">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>id</th>
+          <th>actions</th>
+        </tr>
+        <tr app-user-row 
+            *ngFor="let user of users"
+            [user]="user"
+            (editUser)="editUser($vent)"
+            (deleteUser)="deleteUser($event)"
+            (viewDetails)="viewDetails($vent)"></tr>
+      </table>
+    </div>
+  </div>
+</div>

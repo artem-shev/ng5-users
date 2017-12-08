@@ -1,0 +1,23 @@
+<td>{{user.firstName}}</td>
+<td>{{user.lastName}}</td>
+<td>{{user.id}}</td>
+<td>
+  <button (click)="this.editUser.emit(user)">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    <!-- <span>
+              <strong>Edit</strong>
+            </span> -->
+  </button>
+  <button>
+    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+    <!-- <span>
+              <strong>View</strong>
+            </span> -->
+  </button>
+  <button (click)="delete()">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    <!-- <span>
+              <strong>Delete</strong>
+            </span> -->
+  </button>
+</td>
