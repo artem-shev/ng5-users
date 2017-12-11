@@ -18,6 +18,7 @@
           <th>actions</th>
         </tr>
         <tr app-user-row 
+            class="test"
             *ngFor="let user of users"
             [user]="user"
             (editUser)="editUser($vent)"

@@ -1,3 +1,5 @@
+import { User } from './user.model';
+
 export class GitUser {
   avatar_url: string;
   events_url: string;
@@ -17,6 +19,10 @@ export class GitUser {
   subscriptions_url: string;
   type: string;
   url: string;
+
+  inEdit: boolean;
+
+  systemUser: User;
 }
 
 export class UsersResponse {

@@ -13,17 +13,29 @@
       </span>
     </div>  
   </form>
+            <!-- <select *ngIf="systemUsers.length" (change)="onSystemUserSelect($event)">
+              <option *ngFor="let systemUser of systemUsers" [value]="systemUser.id">{{systemUser.firstName + ' ' + systemUser.lastName}}</option>
+            </select> -->
+
   <div *ngIf="users.length > 0" class="table-responsive">
     <table class="table table-hover table-bordered">
       <tr>
         <th>ava</th>
         <th>login</th>
         <th>id</th>
+        <th>user</th>
       </tr>
       <tr *ngFor="let user of users" (click)="showUserDetails(user)">
         <td><img [src]="user.avatar_url" class="user-ava"></td>
         <td>{{user.login}}</td>
         <td>{{user.id}}</td>
+        <td>
+          <span *ngIf="!user.inEdit">{{user.connectedUser?.firstName}}</span>
+          <select *ngIf="systemUsers.length && user.inEdit" [(ngModel)]="selectedSystemUser" (ngModelChange)="onSystemUserSelect($event, user)">
+            <option *ngFor="let systemUser of systemUsers" [ngValue]="systemUser">{{systemUser.firstName + ' ' + systemUser.lastName}}</option>
+          </select>
+          <button (click)="toggleEditMode(user)">edit mode</button>
+        </td>
       </tr>
     </table>
   </div>
