@@ -22,7 +22,7 @@
             class="test"
             *ngFor="let user of users"
             [user]="user"
-            (editUser)="editUser($vent)"
+            (editUser)="editUser($event)"
             (deleteUser)="deleteUser($event)"
             (viewDetails)="viewDetails($vent)"></tr>
       </table>

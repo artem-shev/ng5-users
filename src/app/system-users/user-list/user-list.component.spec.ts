@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserListComponent } from './user-list.component';
+import { UserRowComponent } from '../user-row/user-row.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsersService } from '../../shared/users.service';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -8,7 +11,16 @@ describe('UserListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserListComponent ]
+      imports: [
+        NgbModule.forRoot()
+      ],
+      declarations: [
+        UserListComponent,
+        UserRowComponent
+      ],
+      providers: [
+        UsersService
+      ],
     })
     .compileComponents();
   }));
