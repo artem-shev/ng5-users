@@ -1,11 +1,19 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { GitConnectorService } from './git-connector.service';
+import { HttpClientModule } from '@angular/common/http';
+import { UrlsService } from './urls.service';
 
 describe('GitConnectorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GitConnectorService]
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        GitConnectorService,
+        UrlsService
+      ]
     });
   });
 

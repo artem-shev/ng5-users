@@ -1,9 +1,12 @@
+import { GitUser } from './git-responses.model';
+
 export class GitParams {
-  id: string;
+  id: number;
   login: string;
 
-  constructor(params) {
-    Object.assign(this, params);
+  constructor({ id, login }: GitUser) {
+    this.id = id;
+    this.login = login;
   }
 }
 
